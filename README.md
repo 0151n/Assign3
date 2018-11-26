@@ -1,12 +1,12 @@
 # Assignment 3
 
-## Repository for group 2's code of CE4073 assignment 3
+## Repository for group 2's code for assignment 3
 ---
 ## Design
 
 ## Todo
 
- 1. use struct with vla and single in for size for single polynomial
+ 1. use struct with vla and single int for size for single polynomial
  2. write specs for each operation [seven steps pg 11](https://sulis.ul.ie/access/content/group/1008ce87-d89a-4410-bb59-16f92bc4d1ce/Unit%202%20-%20Software%20Development%20Practices%20and%20Tools/CE4703-2018-Unit02-SWDevelopmentPracticesTools.pdf)
  3. make out function declarations
  4. write out psuedocode algorithm for each operation
