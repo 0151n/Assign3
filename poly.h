@@ -12,6 +12,7 @@
 //include standard library functions
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 //data structure for single polynomial
 //int coeff[] --> variable length array of coefficients
@@ -20,14 +21,19 @@
 //structure must be initialised with make_poly() in order
 //to allocate memory
 typedef struct{
-	double coeff[];
 	int size;
+	double coeff[];
 }poly;
 
 //------------functions------------
 
 poly* make_poly(int size);
+
 poly* polyAdd(poly* a, poly* b);
 poly* polySub(poly* a, poly* b);
+
+poly* create_poly(int size, double coefficients[]);
+poly* delete_poly(poly* in);
+
 
 #endif
