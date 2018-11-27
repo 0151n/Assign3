@@ -28,6 +28,12 @@ typedef struct{
 //------------functions------------
 
 poly* make_poly(int size);
+
+poly* polyAdd(poly* a, poly* b);
+poly* polySub(poly* a, poly* b);
+
 poly* create_poly(int size, double coefficients[]);
+poly* delete_poly(poly* in);
+
 
 #endif

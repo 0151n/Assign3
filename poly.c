@@ -31,6 +31,41 @@ poly* make_poly(int size){
 	return out;
 }
 
+
+// polyAdd
+// Parameters: 
+// poly* a: Memory address for poly a
+// poly* b: Memory address for poly b
+// Return: Poly with value of a + b
+poly* polyAdd(poly* a, poly* b)
+{
+  int size = a->size;
+  if(a->size < b->size)
+    size = b->size;
+  poly* sum = make_poly(size);
+  for(int i = 0; i < size;i++){
+    sum->coeff[i] = a->coeff[i] + b->coeff[i];
+  }
+  return sum;
+}
+
+// polySub
+// Parameters: 
+// poly* a: Memory address for poly a
+// poly* b: Memory address for poly b
+// Return: Poly with value of a - b
+poly* polySub(poly* a, poly* b)
+{
+  int size = a->size;
+  if(a->size < b->size)
+    size = b->size;
+  poly* sub = make_poly(size);
+  for(int i = 0; i < size;i++){
+    sub->coeff[i] = a->coeff[i] - b->coeff[i];
+  }
+  return sub;
+}
+
 // poly* create_poly(int size,double coefficients)
 // function to create a polynimial and then fill it with user defined values
 // parameters:
