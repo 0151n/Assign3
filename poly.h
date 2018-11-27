@@ -27,5 +27,7 @@ typedef struct{
 //------------functions------------
 
 poly* make_poly(int size);
+poly* polyAdd(poly* a, poly* b);
+poly* polySub(poly* a, poly* b);
 
 #endif
