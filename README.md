@@ -24,7 +24,7 @@
  3. add two polynomials PR
  4. subtract two polynimials PR
  5. multiply two polynomials G
- 6. divide two polynomials P
+ 6. divide a polynomial by a double P
  7. normalise a polynomial P
  8. get order of a polynomial TJ
  9. print polynomial TJ
