@@ -6,7 +6,7 @@ Create a new data structure to hold a polynomial in memory
 name: make_poly
 parameters: size
 
-psuedocode
+pseudocode
 ----------
 	Allocate a block of memory of size (size of the struct) + size * (size of a single double)
 	Check that the memory was allocated and return NULL if it wasn't
@@ -23,7 +23,7 @@ Function: Create a polynomial
 name: create_poly
 parameters: size, coefficents
 
-psuedocode
+pseudocode
 ----------
 
 	define a new poly in memory using make_poly function
@@ -39,7 +39,7 @@ Function: Delete a polynimial from memory
 name: delete_poly
 parameters: size,coefficients
 
-psuedocode
+pseudocode
 ----------
 
 	Delete structure from memory using free() function
