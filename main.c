@@ -154,7 +154,6 @@ int run_testcases(){
 	else printf("\n              --- TEST CASE FAILED --- ");		
 	printf("-------------------------------------------------\n");
 
-<<<<<<< HEAD
 	//poly of length 4
 	//create arrays of coefficients for creating polynomials
 	double div2[] = {10,2.5,5,15};
@@ -190,10 +189,4 @@ int run_testcases(){
 
 int main(){
 	run_testcases();
-=======
-	poly* test = create_poly(3,poly1);	
-	poly* out = poly_multiply(test,2);
-	print_poly(test);
-	print_poly(out);
->>>>>>> master
 }
