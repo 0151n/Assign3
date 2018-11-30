@@ -229,6 +229,26 @@ poly* poly_multiply(poly* a, double x) {
   return multiply; //Return new poly
 }
 
+// poly* poly_input(char name)
+// function to input a polynomial from the user
+// parameters:
+// 	char name --> name of the poly
+// return:
+// 	pointer to inputed poly in memory
+poly* poly_input(char name)
+{
+  int i;
+  int power;
+  printf("Highest power of poly %c:",name);
+  scanf("%d",&power);
+  double values[power+1];
+  for(i = 0; i < power+1; i ++){
+    printf("Enter coefficient for x^%d: ",i);
+    scanf("%lf",&values[i]);
+  }
+  return create_poly(power+1,values);
+}
+
 
 
 

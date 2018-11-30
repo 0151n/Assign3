@@ -1,10 +1,32 @@
  Documentation for Group 2's Assignment 3
 ------------------------------------------
 
-Create a new data structure to hold a polynomial in memory
+Definition of Data type
+------------------------------------------
+
+The data type we used in this project was a simple struct
+
+	struct:
+		-size --> size of the polynimial
+		-coeff --> array of coefficients of the polynomial
+				  index 0 being the coefficient of x^0,
+				  index 2 being the coefficient x^2, etc
+
+we then used malloc each time we create a new polynomial to allocate a new block of memory that is big enough to store the sturct and the array of coefficients.
+
+Since this memory is allocated at dynamically at run time, a function is needed to create this data structure (make_poly) but once it is created we can then
+access it like a normal struct.
+
+to make things easier for ourselves we used typedef to rename the struct to "poly"
+
+------------------------------------------
+Specification
+-------------
+Function: Create a new data structure to hold a polynomial in memory
 
 name: make_poly
 parameters: size
+returns: pointer to new empty polynomial
 
 pseudocode
 ----------
@@ -18,10 +40,13 @@ pseudocode
 
 ------------------------------------------
 
+Specification
+-------------
 Function: Create a polynomial
 
 name: create_poly
 parameters: size, coefficents
+returns: pointer to new polynomial
 
 pseudocode
 ----------
@@ -34,10 +59,13 @@ pseudocode
 
 ------------------------------------------
 
+Specification
+-------------
 Function: Delete a polynimial from memory
 
 name: delete_poly
 parameters: size,coefficients
+returns: nothing
 
 pseudocode
 ----------
@@ -46,10 +74,13 @@ pseudocode
 
 ------------------------------------------
 
+Specification
+-------------
 Function: Add together two polynomials
 
 name: poly_add
 parameters: a,b
+returns: pointer to new polynomial of value (a+b)
 
 pseudocode
 ----------
@@ -64,10 +95,13 @@ pseudocode
 
 ------------------------------------------
 
+Specification
+-------------
 Function: Subtract one polynomial from another
 
 name: poly_sub
 parameters: a,b
+returns: pointer to new polynomial of value (a-b)
 
 pseudocode
 ----------
@@ -81,3 +115,138 @@ pseudocode
 	return pointer to polynomial sub
 
 ------------------------------------------
+
+Specification
+-------------
+Function: multiply a polynomial by a double
+
+name : poly_multiply
+parameters: a,x;
+returns: pointer to new polynomial of value (a * x)
+
+pseudocode
+----------
+	create polynomial using make_poly in memory
+	for each coefficient in new polynomial
+		multiply the coefficient by the double
+	
+	return pointer to new polynomial
+
+------------------------------------------
+
+Specification
+-------------
+Function: Divide a polynomial by a double
+
+name : poly_division
+parameters: a,x;
+returns: pointer to new polynomial of value (a / x)
+
+pseudocode
+----------
+	create polynomial using make_poly in memory
+	for each coefficient
+		divide the coefficient by the double
+	
+	return pointer to new polynomial
+
+------------------------------------------
+
+Specification
+-------------
+Function: Return the order of a polynomial
+
+name: poly_order
+parameters: order
+return: integer value of order
+
+pseudocode
+----------
+	for each coefficient in input poly "order starting at the end
+		if the coefficeint is no equal to 0
+			return the index in the array
+	return 0 if for loop completes without finding a non-zero element
+
+------------------------------------------
+
+Specification
+-------------
+Function: print out a polynomial
+
+name: print_poly
+parameters: a
+returns: nothing
+
+pseudocode
+----------
+	for each element in coefficent array of a
+		if current element is greater than zero and no the first element then
+			print " + "
+		else if the current element of the array is less than zero then
+			print " "
+		print the current element and its power
+
+	print a newline
+
+------------------------------------------
+
+Specification
+-------------
+Function: Normalise a polynomial 
+
+name: poly_normalise
+parameters: a,c;
+returns: pointer to new normalised polynomial
+
+pseudocode
+----------
+	double c is initialised with the coefficient of the highest power term
+	create polynomial normalise using make_poly  to store and return answer
+	for each coefficient
+		divide the coefficient by the double c
+	
+	return pointer to polynomial normalise
+
+------------------------------------------
+
+Specification
+-------------
+Function: check if two polynomials are equal
+
+name: poly_equal
+parameters: a,b
+returns: 1 if equal, 0 if not equal
+
+psuedocode
+----------
+	if a and b are not the the same size then
+		return 0
+
+	for each element in a
+		if current element of a is not equal to the corresponding element of b then
+			return 0
+	return 1		
+
+------------------------------------------
+
+Specification
+-------------
+Function: get a polynomial from the user
+
+name: poly_input
+parameters: name
+returns: pointer to new polynomial of value inputted by user
+
+psuedocode
+----------
+	ask user for size of polynomial "name"
+	for the number of elements required by a polynomial of inputted size
+		ask user for value of current coefficient
+		put value into array
+	create new polynomial with inputted size and coefficient values
+
+------------------------------------------
+
+
+
+
