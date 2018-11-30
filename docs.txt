@@ -45,3 +45,39 @@ pseudocode
 	Delete structure from memory using free() function
 
 ------------------------------------------
+
+Function: Add together two polynomials
+
+name: poly_add
+parameters: a,b
+
+pseudocode
+----------
+
+	Find which polynomial a or b is of the highest degree and store the size of each in a variable.
+	Create a polynomial sum using make_poly to store and return answer
+	For each coefficient that's power is in both polynomials
+		Add coefficient of a and b and store in sum 
+	For each coefficient that's power is only in the polynomial of higher degree
+		Set coefficient of sum to coefficient of polynomial of higher degree
+	return pointer to polynomial sum
+
+------------------------------------------
+
+Function: Subtract one polynomial from another
+
+name: poly_sub
+parameters: a,b
+
+pseudocode
+----------
+
+	Find which polynomial a or b is of the highest degree and store the size of each in a variable.
+	Create a polynomial sub using make_poly to store and return answer
+	For each coefficient that's power is in both polynomials
+		Subtract the coefficient of a from b and store in sub 
+	For each coefficient that's power is only in the polynomial of higher degree
+		Set coefficient of sub to coefficient of polynomial of higher degree or to negative of coefficient if b is higher degree than a
+	return pointer to polynomial sub
+
+------------------------------------------
