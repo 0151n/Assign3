@@ -333,9 +333,9 @@ void run_testcases(){
 }
 
 int main(){
-  // Title
+  //print title
   printf("====================\nAssignment 3: Poly Cal\n====================\n");
-  int input;
+  int input; //variable to store user input
   double value;
 
   // Menu
@@ -386,7 +386,7 @@ int main(){
     else if(input == 6){
       //Order
       poly* a = poly_input('a');
-      printf("Answer = %lf\n",poly_order(a));
+      printf("Answer = %d\n",poly_order(a));
     }
     else if(input == 7){
       //Print
@@ -400,21 +400,27 @@ int main(){
     }
     else{
       //Invalid Input
-      printf("Invalid input\n");
-      char bin[100];
-      scanf("%s",bin);
+      printf("-------------------\n");
+      printf("Invalid input\nPlease try a different one\n");
+      printf("-------------------\n");
     }
   }// Menu
   return EXIT_SUCCESS;
 }
-
+// poly* poly_input(char name)
+// function to input a polynomial from the user
+// parameters:
+// 	char name --> name of the poly
+// return:
+// 	pointer to inputed poly in memory
 poly* poly_input(char name)
 {
+  int i;
   int length;
   printf("Length of poly %c:",name);
   scanf("%d",&length);
   double values[length];
-  for(int i = 0; i < length; i ++){
+  for(i = 0; i < length; i ++){
     printf("Enter coefficient for x^%d: ",i);
     scanf("%lf",&values[i]);
   }
