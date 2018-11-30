@@ -41,7 +41,7 @@ poly* poly_sub(poly* a, poly* b);
 
 //poly print and order functions --TJ
 void print_poly(poly* a);
-poly* poly_order(poly* a);
+int poly_order(poly* order);
 
 //poly division and normalisation --Petru
 poly* poly_division (poly* a, double x);

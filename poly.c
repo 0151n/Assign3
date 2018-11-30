@@ -135,38 +135,29 @@ void print_poly(poly* a){
     int size = a->size; //int size = to the size stored in memory for a
     
 //    printf("\nPolynomial contains: \n");//Print a heading for print_poly output
-    
     for (i = 0; i <= size - 1; i++){
-        printf("%lfx^%d ",a->coeff[i],(size - (i+1)));//print each element from the array in with exponent
-    }
+		if(a->coeff[i] > 0 && i != 0)printf(" + ");//if positive print with +
+		else if(a->coeff[i] < 0)printf(" ");
+        printf("%lfx^%d",a->coeff[i],i);//print each element from the array in with exponent   
+	}
     printf("\n");//Move next output to new line
 }
 
 // poly* order_poly(poly* a)
-// function to reorder a polynomial from highest coefficient downwards
+// function to return order a polynomial from highest coefficient downwards
 // parameters:
 // 	poly* order = the polynomial that is to be reordered
 // returns:
 // 	return a poly with orders descending from highest coefficient
 
-poly* poly_order(poly* order){
-	int size = order->size; //int size = to the size stored in memory for order
-	int i,j; //counter variables for use in function
-	
-	for(i = 0; i < size; i++){
-		
-		for(j = 0; j < size; j++){
-			
-			if(order->coeff[j] < order->coeff[i]){//check which value is higher
-				
-				int tmp = order->coeff[i];//store the value in coeff[i] in tmp when if statement is fulfilled
-				order->coeff[i] = order->coeff[j];//Switch the values in the respective memory locations of order
-				order->coeff[j] = tmp;//Finish switching by replacing the value in coeff[j] with value stored in tmp
-			}
-		}
+int poly_order(poly* order){
+	int i; //counter variables for use in function
+
+	//loop through coeff array of order polynomial from the last element to the first 
+	for(i = order->size - 1;i > 0;i--){
+			if(order->coeff[i] != 0)return i;
 	}
-	print_poly(order);//call print_poly to print newly ordered polynomial
-	return order;//Return newly order polynomial
+	return 0;//Return newly order polynomial
 }
 
 // poly* poly_division (poly* a,double x) 
@@ -195,7 +186,7 @@ poly* poly_division (poly* a,double x)
 poly* poly_normalise (poly* a) 
 { 
     int size = a->size;
-    double c = a->coeff[size]; //get value of coeffiecient with highest term
+    double c = a->coeff[size - 1]; //get value of coeffiecient with highest term
     int i; //counter variable
     poly* normalise = make_poly(size); //make new poly of the same size as input
     for(i = 0; i < size;i++){ //loop through each coefficient
