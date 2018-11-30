@@ -335,21 +335,18 @@ void run_testcases(){
 int main(){
   //print title
   printf("====================\nAssignment 3: Poly Cal\n====================\n");
-  int input; //variable to store user input
+  int input;
   double value;
-  int inputValid;
+  char in[256];
 
   // Menu
   while(1){
-    inputValid = 0;
-    printf("Operations available:\n0) Test cases\n1) Add two polynomials\n2) Subract two polnomials\n3) Multiply polynomial by double\n4) Divide polynomial by double\n5) Normalise polynomial\n6) Return order of polynomial\n7) Print polynomial\n8) Exit\nChoice: ");
-    inputValid = scanf("%d",&input);
+    printf("Operations available:\n0) Test cases\n1) Add two polynomials\n2) Subract two polnomials\n3) Multiply polynomial by double\n4) Divide polynomial by double\n5) Normalise polynomial\n6) Return order of polynomial\n7) Print polynomial\n8) Test cases\n9) Exit\nChoice: ");
+    scanf("%s",in);
 
-    if(input == 0){
-      //Test
-      run_testcases();
-    }
-    else if(input == 1){
+    input = atoi(in);
+    
+    if(input == 1){
       //Add
       poly* a = poly_input('a');
       poly* b = poly_input('b');
@@ -397,19 +394,20 @@ int main(){
       print_poly(a);
     }
     else if(input == 8){
+      //Test cases
+      run_testcases();
+    }
+    else if(input == 9){
       //Exit
       break;
-    }
-    else if(inputValid){
-      // Invalid option
-      printf("Invalid option\n");
-      continue;
     }
     else{
       //Invalid Input
       printf("-------------------\n");
       printf("Invalid input\nPlease try a different one\n");
       printf("-------------------\n");
+      //char bin[100];
+      //scanf("%s",bin);
     }
   }// Menu
   return EXIT_SUCCESS;
@@ -423,13 +421,13 @@ int main(){
 poly* poly_input(char name)
 {
   int i;
-  int length;
-  printf("Length of poly %c:",name);
-  scanf("%d",&length);
-  double values[length];
-  for(i = 0; i < length; i ++){
+  int power;
+  printf("Highest power of poly %c:",name);
+  scanf("%d",&power);
+  double values[power+1];
+  for(i = 0; i < power+1; i ++){
     printf("Enter coefficient for x^%d: ",i);
     scanf("%lf",&values[i]);
   }
-  return create_poly(length,values);
+  return create_poly(power+1,values);
 }
