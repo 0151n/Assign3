@@ -46,6 +46,8 @@ poly* poly_order(poly* a);
 //poly division and normalisation --Petru
 poly* poly_division (poly* a, double x);
 poly* poly_normalise (poly* a);
+//poly multiplication -- George
+poly* poly_multiply(poly* a, double x);
 
 //extra functions
 int poly_equal(poly* a,poly *b);

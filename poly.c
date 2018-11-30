@@ -220,3 +220,24 @@ int poly_equal(poly* a, poly* b){
 	return 1; //if coefficients are the same
 }
 
+//poly* poly_multiply (poly* a, double x)
+//Parameters:
+//  poly* a: Memory address for poly a
+//  double x: Double to be multiplied by
+//Return: Answer of Poly with value of a multiplied by x
+poly* poly_multiply(poly* a, double x) {
+  
+  int i;  //Variable for counter
+  int size = a->size;
+
+  poly* multiply = make_poly(size);//Make the new poly the same size as the input
+  for(i=0;i<size;i++){ //Loop through each coefficient of inputted poly
+    multiply->coeff[i] = a->coeff[i] * x;//multiply each coefficient by double x and set as coefficient of new poly
+  }
+
+  return multiply; //Return new poly
+}
+
+
+
+

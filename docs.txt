@@ -1,0 +1,47 @@
+ Documentation for Group 2's Assignment 3
+------------------------------------------
+
+Create a new data structure to hold a polynomial in memory
+
+name: make_poly
+parameters: size
+
+pseudocode
+----------
+	Allocate a block of memory of size (size of the struct) + size * (size of a single double)
+	Check that the memory was allocated and return NULL if it wasn't
+	set the size element of the struct to the inputed size
+	for each element in the structs coefficient array
+		set coefficient to 0
+	return pointer to new polynomial struct
+
+
+------------------------------------------
+
+Function: Create a polynomial
+
+name: create_poly
+parameters: size, coefficents
+
+pseudocode
+----------
+
+	define a new poly in memory using make_poly function
+	for each element in the new poly's coefficient array
+		set coefficient to corresponding coefficient in input coefficient array
+	return pointer to new polynomial in memory
+
+
+------------------------------------------
+
+Function: Delete a polynimial from memory
+
+name: delete_poly
+parameters: size,coefficients
+
+pseudocode
+----------
+
+	Delete structure from memory using free() function
+
+------------------------------------------
