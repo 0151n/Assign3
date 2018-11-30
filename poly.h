@@ -51,5 +51,6 @@ poly* poly_multiply(poly* a, double x);
 
 //extra functions
 int poly_equal(poly* a,poly *b);
+poly* poly_input(char name);
 
 #endif
