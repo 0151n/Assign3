@@ -126,6 +126,63 @@ int run_testcases(){
 	else printf("\n              --- TEST CASE FAILED --- \n");		
 	printf("-------------------------------------------------\n");
 
+//test cases for division
+	//two polys of same size
+	//create arrays of coefficients for creating polynomials
+	double div1[] = {1,2,3};
+	double res5[] = {0.5f,1,1.5f};
+	double divisor1 = 2;
+	
+	//create polynomials
+	poly* divcase1 = create_poly(3,div1);
+	poly* expected_result5 = create_poly(3,res5);
+	//perform divtraction operation
+	poly* result5 = poly_division(divcase1,divisor1);
+
+	//run test case	
+	printf("TEST CASE 3: DIVIDE A POLYNOMIALS OF SIZE 3 BY DOUBLE\n");
+	printf("-------------------------------------------------\n");
+	printf("DIVIDE:\n");
+	print_poly(divcase1);
+	printf("BY:\n");
+	printf("%lf\n",divisor1);
+	printf("\nEXPECTED RESULT = ");
+	print_poly(expected_result5);
+	printf("ACTUAL RESULT   = ");
+	print_poly(result5);
+	if(poly_equal(expected_result5,result5))printf("\n              --- TEST CASE PASSED --- \n");
+	else printf("\n              --- TEST CASE FAILED --- ");		
+	printf("-------------------------------------------------\n");
+
+	//poly of length 4
+	//create arrays of coefficients for creating polynomials
+	double div2[] = {10,2.5,5,15};
+	double res6[] = {4,1,2,6};
+	double divisor2 = 2.5;
+	
+	//create polynomials
+	poly* divcase2 = create_poly(4,div2);
+	poly* expected_result6 = create_poly(4,res6);
+	//perform division operation
+	poly* result6 = poly_division(divcase2,divisor2);
+
+	//run test case	
+	printf("TEST CASE 3: DIVIDE A POLYNOMIALS OF SIZE 4 BY DOUBLE\n");
+	printf("-------------------------------------------------\n");
+	printf("DIVIDE:\n");
+	print_poly(divcase2);
+	printf("BY:\n");
+	printf("%lf\n",divisor2);
+	printf("\nEXPECTED RESULT = ");
+	print_poly(expected_result6);
+	printf("ACTUAL RESULT   = ");
+	print_poly(result6);
+	if(poly_equal(expected_result6,result6))printf("\n              --- TEST CASE PASSED --- \n");
+	else printf("\n              --- TEST CASE FAILED --- ");		
+	printf("-------------------------------------------------\n");
+
+	
+
 
 
 }
