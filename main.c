@@ -341,7 +341,7 @@ int main(){
 
   // Menu
   while(1){
-    printf("Operations available:\n0) Test cases\n1) Add two polynomials\n2) Subract two polnomials\n3) Multiply polynomial by double\n4) Divide polynomial by double\n5) Normalise polynomial\n6) Return order of polynomial\n7) Print polynomial\n8) Test cases\n9) Exit\nChoice: ");
+    printf("Operations available:\n1) Add two polynomials\n2) Subract two polnomials\n3) Multiply polynomial by double\n4) Divide polynomial by double\n5) Normalise polynomial\n6) Return order of polynomial\n7) Print polynomial\n8) Test cases\n9) Exit\nChoice: ");
     scanf("%s",in);
 
     input = atoi(in);
