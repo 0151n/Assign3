@@ -1,9 +1,12 @@
 /*---------------------------------------------*
  * Header file for poly.c		       *
  * contains function and structure definitions *
- *
- * authors: Oisín O'Halloran --add other people*
- * date 23/11/18			       *
+ *					       *
+ * authors: Oisín O'Halloran, Peter Roe,       *
+ * 	    T.J. Kenneally, Petru Zelenitchi,  *
+ * 	    George Raju			       *
+ *					       *
+ * date: 23/11/18			       *
  *---------------------------------------------*/
 
 #ifndef POLY_H
@@ -31,6 +34,7 @@ typedef struct{
 poly* make_poly(int size);
 poly* create_poly(int size, double coefficients[]);
 void delete_poly(poly* in);
+int poly_equals(poly* a,poly *b);
 //poly add and subtract funtions --Peter
 poly* poly_add(poly* a, poly* b);
 poly* poly_sub(poly* a, poly* b);
@@ -40,5 +44,7 @@ poly* poly_order(poly* a);
 //poly division and normalisation --Petru
 poly* poly_division (poly* a, double x);
 poly* poly_normalise (poly* a);
+
+//extra functions
 
 #endif

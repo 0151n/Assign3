@@ -167,6 +167,7 @@ poly* poly_order(poly* order){
 }
 
 // poly* poly_division (poly* a,double x) 
+// Function to divide all coefficients in a polynomial by a double
 // Parameters:   
 // poly* a: Memory address for poly a 
 // double x : Double to be divided by
@@ -183,6 +184,7 @@ poly* poly_division (poly* a,double x)
 } 
 
 // poly* poly_normalise (poly* a,double c) 
+// function to normalise a polynomial
 // Parameters:   
 // poly* a: Memory address for poly a 
 // Return: Normalised poly
@@ -197,5 +199,21 @@ poly* poly_normalise (poly* a)
         normalise->coeff[i] = a->coeff[i] / c; //divide each coefficient by value of coefficient of largest term
     } 
     return normalise; 
-} 
+}
+// int poly_equals(poly* a, poly* b)
+// function to check if two polynomials are equal
+// Parameters:
+// poly* a: memory address of poly a
+// poly* b: memory address of poly b
+// return:
+//  int: 1 if equal, 0 if not equal
+int poly_equals(poly* a, poly* b){
+	int i; //counter variable
+	//make sure both polys are same size
+	if(a->size != b->size)return 0; //return 0 if sizes are not the same
+	for(i = 0;i < a->size;i++){ //loop through each element of coefficient array
+		if(a->coeff[i] != b->coeff[i])return 0;//return 0 if coefficients are not the same
+	}
+	return 1; //if coefficients are the same
+}
 
