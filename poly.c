@@ -67,7 +67,7 @@ void delete_poly(poly* in){
 poly* poly_add(poly* a, poly* b)
 {
   // Find sizes of polys relative to eachother
-  int i,j; //counter varialbes
+  int i; //counter varialbes
   int aBig = 0;
   int small = a->size;
   int big = b->size;
