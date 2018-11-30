@@ -13,6 +13,7 @@ int main(){
     double poly1[] = {1,2,3};
 
 	poly* test = create_poly(3,poly1);	
-
-    for(i = 0;i < test->size;i++)printf("%lf\n",test->coeff[i]);
+	poly* out = poly_multiply(test,2);
+	print_poly(test);
+	print_poly(out);
 }
