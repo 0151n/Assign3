@@ -27,13 +27,18 @@ typedef struct{
 
 //------------functions------------
 
+//poly createion and deletion functions --Oisín
 poly* make_poly(int size);
-
-poly* polyAdd(poly* a, poly* b);
-poly* polySub(poly* a, poly* b);
-
 poly* create_poly(int size, double coefficients[]);
-poly* delete_poly(poly* in);
-
+void delete_poly(poly* in);
+//poly add and subtract funtions --Peter
+poly* poly_add(poly* a, poly* b);
+poly* poly_sub(poly* a, poly* b);
+//poly print and order functions --TJ
+void print_poly(poly* a);
+poly* poly_order(poly* a);
+//poly division and normalisation --Petru
+poly* poly_division (poly* a, double x);
+poly* poly_normalise (poly* a);
 
 #endif
