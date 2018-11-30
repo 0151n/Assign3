@@ -14,7 +14,8 @@ The data type we used in this project was a simple struct
 
 we then used malloc each time we create a new polynomial to allocate a new block of memory that is big enough to store the sturct and the array of coefficients.
 
-Since this memory is allocated at dynamically at run time, a function is needed to create this data structure (make_poly) but once it is created we can then
+Since this memory is allocated at dynamically at run time, a function is needed to create this data structure (make_poly)
+but once it is created we can then
 access it like a normal struct.
 
 to make things easier for ourselves we used typedef to rename the struct to "poly"
