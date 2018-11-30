@@ -188,5 +188,90 @@ int run_testcases(){
 }
 
 int main(){
-	run_testcases();
+  // Title
+  printf("====================\nAssignment 3: Poly Cal\n====================\n");
+  int input;
+  double value;
+
+  // Menu
+  while(1){
+    printf("Operations available:\n0) Test cases\n1) Add two polynomials\n2) Subract two polnomials\n3) Multiply polynomial by double\n4) Divide polynomial by double\n5) Normalise polynomial\n6) Return order of polynomial\n7) Print polynomial\n8) Exit\nChoice: ");
+    scanf("%d",&input);
+
+    if(input == 0){
+      //Test
+      run_testcases();
+    }
+    else if(input == 1){
+      //Add
+      poly* a = poly_input('a');
+      poly* b = poly_input('b');
+      printf("Answer = ");
+      print_poly(poly_add(a,b));
+    }
+    else if(input ==2){
+      //Sub
+      poly* a = poly_input('a');
+      poly* b = poly_input('b');
+      printf("Answer = ");
+      print_poly(poly_sub(a,b));
+    }
+    else if(input == 3){
+      //Multiply
+      poly* a = poly_input('a');
+      printf("Double value to multiply by: ");
+      scanf("%lf",&value);
+      printf("Answer = ");
+      print_poly(poly_multiply(a,value));
+    }
+    else if(input == 4){
+      //Divide
+      poly* a = poly_input('a');
+      printf("Double value to divide by: ");
+      scanf("%lf",&value);
+      printf("Answer = ");
+      print_poly(poly_division(a,value));
+    }
+    else if(input == 5){
+      //Normalise
+      poly* a = poly_input('a');
+      printf("Answer = ");
+      print_poly(poly_normalise(a));
+    }
+    else if(input == 6){
+      //Order
+      poly* a = poly_input('a');
+      printf("Answer = %lf\n",poly_order(a));
+    }
+    else if(input == 7){
+      //Print
+      poly* a = poly_input('a');
+      printf("Answer = ");
+      print_poly(a);
+    }
+    else if(input == 8){
+      //Exit
+      break;
+    }
+    else{
+      //Invalid Input
+      printf("Invalid input\n");
+      char bin[100];
+      scanf("%s",bin);
+    }
+  }// Menu
+  return EXIT_SUCCESS;
+}
+
+poly* poly_input(char name)
+{
+  int length;
+  printf("Length of poly %c:",name);
+  scanf("%d",&length);
+  double values[length];
+  for(int i = 0; i < length; i ++){
+    printf("Enter coefficient for x^%d: ",i);
+    scanf("%lf",&values[i]);
+  }
+  return create_poly(length,values);
 }
