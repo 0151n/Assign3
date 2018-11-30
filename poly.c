@@ -1,9 +1,12 @@
 /*---------------------------------------------*
  * file containing all functions regarding the *
  * manipulation of polynomials                 *
- *                                             *
- * authors: Oisín O'Halloran --add others      *
- * date: 23/11/18                              *
+ *					       *
+ * authors: Oisín O'Halloran, Peter Roe,       *
+ * 	    T.J. Kenneally, Petru Zelenitchi,  *
+ * 	    George Raju			       *
+ *					       *	
+ * date: 29/11/18                              *
  * --------------------------------------------*/
 
 #include"poly.h"
@@ -131,7 +134,7 @@ void print_poly(poly* a){
     int i; //For loop index
     int size = a->size; //int size = to the size stored in memory for a
     
-    printf("\nPolynomial contains: \n");//Print a heading for print_poly output
+//    printf("\nPolynomial contains: \n");//Print a heading for print_poly output
     
     for (i = 0; i <= size - 1; i++){
         printf("%lfx^%d ",a->coeff[i],(size - (i+1)));//print each element from the array in with exponent
@@ -200,14 +203,14 @@ poly* poly_normalise (poly* a)
     } 
     return normalise; 
 }
-// int poly_equals(poly* a, poly* b)
+// int poly_equal(poly* a, poly* b)
 // function to check if two polynomials are equal
 // Parameters:
 // poly* a: memory address of poly a
 // poly* b: memory address of poly b
 // return:
 //  int: 1 if equal, 0 if not equal
-int poly_equals(poly* a, poly* b){
+int poly_equal(poly* a, poly* b){
 	int i; //counter variable
 	//make sure both polys are same size
 	if(a->size != b->size)return 0; //return 0 if sizes are not the same
