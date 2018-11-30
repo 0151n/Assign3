@@ -39,13 +39,26 @@ poly* make_poly(int size){
 // Return: Poly with value of a + b
 poly* polyAdd(poly* a, poly* b)
 {
-  int size = a->size;
-  if(a->size < b->size)
-    size = b->size;
-  poly* sum = make_poly(size);
-  for(int i = 0; i < size;i++){
-    sum->coeff[i] = a->coeff[i] + b->coeff[i];
+  // Find sizes of polys relative to eachother
+  int aBig = 0;
+  int small = a->size;
+  int big = b->size;
+  if(a->size > b->size){
+    small = b->size;
+    big = a->size;
+    aBig = 1;
   }
+  poly* sum = make_poly(big);
+  // Add respective overlapping coefficients
+  for(int i = 0; i < small;i++)
+    sum->coeff[i] = a->coeff[i] + b->coeff[i];
+  // Add non-overlapping coefficients to answer
+  for(int i = small; i < big; i++)
+    if(aBig)
+	sum->coeff[i] = a->coeff[i];
+    else
+	sum->coeff[i] = b->coeff[i];
+  // Return answer poly
   return sum;
 }
 
@@ -56,13 +69,26 @@ poly* polyAdd(poly* a, poly* b)
 // Return: Poly with value of a - b
 poly* polySub(poly* a, poly* b)
 {
-  int size = a->size;
-  if(a->size < b->size)
-    size = b->size;
-  poly* sub = make_poly(size);
-  for(int i = 0; i < size;i++){
-    sub->coeff[i] = a->coeff[i] - b->coeff[i];
+  // Find sizes of polys relative to eachother
+  int aBig = 0;
+  int small = a->size;
+  int big = b->size;
+  if(a->size > b->size){
+    small = b->size;
+    big = a->size;
+    aBig = 1;
   }
+  poly* sub = make_poly(big);
+  // Add respective overlapping coefficients
+  for(int i = 0; i < small;i++)
+    sub->coeff[i] = a->coeff[i] - b->coeff[i];
+  // Add non-overlapping coefficients to answer
+  for(int i = small; i < big; i++)
+    if(aBig)
+	sub->coeff[i] = a->coeff[i];
+    else
+	sub->coeff[i] = -(b->coeff[i]);
+  // Return answer poly
   return sub;
 }
 
