@@ -179,7 +179,7 @@ int run_testcases(){
 	print_poly(result6);
 	if(poly_equal(expected_result6,result6))printf("\n              --- TEST CASE PASSED --- \n");
 	else printf("\n              --- TEST CASE FAILED --- ");		
-	printf("-------------------------------------------------\n");
+	printf("-------------------------------------------------\n\n");
 
 	
 
@@ -192,11 +192,13 @@ int main(){
   printf("====================\nAssignment 3: Poly Cal\n====================\n");
   int input;
   double value;
+  int inputValid;
 
   // Menu
   while(1){
+    inputValid = 0;
     printf("Operations available:\n0) Test cases\n1) Add two polynomials\n2) Subract two polnomials\n3) Multiply polynomial by double\n4) Divide polynomial by double\n5) Normalise polynomial\n6) Return order of polynomial\n7) Print polynomial\n8) Exit\nChoice: ");
-    scanf("%d",&input);
+    inputValid = scanf("%d",&input);
 
     if(input == 0){
       //Test
@@ -252,6 +254,11 @@ int main(){
     else if(input == 8){
       //Exit
       break;
+    }
+    else if(inputValid){
+      // Invalid option
+      printf("Invalid option\n");
+      continue;
     }
     else{
       //Invalid Input
